@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { client, urlFor } from "../../lib/client";
+
 import {
   AiOutlineMinus,
   AiOutlinePlus,
@@ -7,11 +8,16 @@ import {
   AiOutlineStar,
 } from "react-icons/ai";
 import Product from "../../components/Product";
-const ProductDetails = ({ product, products, slug, query }) => {
+import {useStateContext} from '../../context/StateContext'
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index,setIndex]=useState(0);
+const {decQty,incQty,qty,onAdd}=useStateContext()
   return (
     <div>
+      <Navbar/>
       <div className="product-detail-container">
         <div>
           <div className="image-container" >
@@ -45,18 +51,18 @@ const ProductDetails = ({ product, products, slug, query }) => {
           <div className="quantity">
             <h3> Quantity:</h3>
             <p className="quantity-desc">
-              <span className="minus" onClick=""></span>
-              <AiOutlineMinus />
-              <span className="num" onClick="">
-                0
+              <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+              
+              <span className="num" >
+                {qty}
               </span>
-              <span className="minus" onCLick="">
+              <span className="minus" onClick={incQty}>
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick="">Add to Cart</button>
+            <button type="button" className="add-to-cart" onClick={()=>onAdd(product,qty)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick="">Buy Now</button>
           </div>
         </div>
@@ -70,7 +76,7 @@ const ProductDetails = ({ product, products, slug, query }) => {
         </div>
 
       </div>
-
+<Footer/>
     </div>
   );
 };
@@ -88,12 +94,12 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type=="product" && slug.current =='${slug}'][0]`;
-  console.log(query);
+  
   const product = await client.fetch(query);
 
   const productsQuery = `*[_type=="product"]`;
   const products = await client.fetch(productsQuery);
-  console.log(product);
+  
   return {
     props: { product, products, slug, query },
   };

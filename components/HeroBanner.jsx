@@ -5,7 +5,7 @@ const HeroBanner = ({heroBanner}) => {
   return (
     <div className='hero-banner-container'>
         <div>
-        {console.log(heroBanner)}
+        
             <p className='beats-solo'>{heroBanner.smallText}</p>
             <h3>{heroBanner.largeText2}</h3>
             <img src={urlFor(heroBanner.image)} alt="banner" className='hero-banner-image'/>
