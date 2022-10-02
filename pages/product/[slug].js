@@ -11,13 +11,16 @@ import Product from "../../components/Product";
 import {useStateContext} from '../../context/StateContext'
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import Cart from "../../components/Cart";
+
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index,setIndex]=useState(0);
-const {decQty,incQty,qty,onAdd}=useStateContext()
+const {decQty,incQty,qty,onAdd,showCart}=useStateContext()
   return (
     <div>
       <Navbar/>
+      {showCart && <Cart/>}
       <div className="product-detail-container">
         <div>
           <div className="image-container" >

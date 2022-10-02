@@ -21,7 +21,7 @@ const index = ({ products, bannerData }) => {
         ))}
       </div>
       <Footer />
-     
+     {}
     </>
   );
 };

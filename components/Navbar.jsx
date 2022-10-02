@@ -2,7 +2,9 @@ import React from "react";
 import Image from "next/image";
 import logo from "../Assets/Images/logo.jpg";
 import Link from "next/link";
+import { useStateContext } from "../context/StateContext";
 const Navbar = () => {
+  const {showCart,setShowCart,cartItems}=useStateContext()
   return (
     <div class="type3 section">
       <nav>
@@ -36,9 +38,10 @@ const Navbar = () => {
         </div>
 
         <div class="end">
-          <Link href={`/Cart`}><a><ion-icon name="cart-outline"></ion-icon></a>
-            
-          </Link>
+          <button type="button" onClick={()=>setShowCart(!showCart)}>
+          <ion-icon name="cart-outline"></ion-icon>
+          </button>
+          {cartItems.length}
         </div>
       </nav>
     </div>
