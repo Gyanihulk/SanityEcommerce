@@ -6,17 +6,21 @@ const Product = ({ product: { image, name, slug, price } }) => {
   return (
     <div>
       <Link href={`/product/${slug.current}`}>
-        <div className="product-card">
-          <img
+      <div
+              style={{
+                animationDelay: "1s",
+              }}
+            >
+              <img
             src={urlFor(image && image[0])}
-            width={250}
-            height={250}
+            width={80}
+            height={80}
             className="product-image"
             alt="product1"
           />
-          <p className="product-name">{name}</p>
-          <p className="product-price">₹ {price}</p>
-        </div>
+              <p>{name}</p>
+              <p>₹ {price}</p>
+            </div>
       </Link>
     </div>
   );

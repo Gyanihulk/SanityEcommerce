@@ -1,6 +1,7 @@
 import { StateContext } from "../context/StateContext";
 import "../styles/globals.scss";
 import "../styles/Navbar.scss";
+import "../styles/index.scss"
 import { Toaster } from "react-hot-toast";
 function MyApp({ Component, pageProps }) {
   return (
