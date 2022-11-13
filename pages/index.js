@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HeroBanner from "../components/HeroBanner";
 
-import Home2 from "../components/home2";
+import Home2 from "../components/Home2";
 import Home3 from "../components/AboutTheCoach";
 import Navbar from "../components/Navbar";
 import Product from "../components/Product";
