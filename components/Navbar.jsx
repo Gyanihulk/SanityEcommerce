@@ -6,12 +6,12 @@ import { useStateContext } from "../context/StateContext";
 const Navbar = () => {
   const {showCart,setShowCart,cartItems}=useStateContext()
   return (
-    <div class="type3 section">
+    <div className="type3 section">
       <nav>
-        <div class="end">
-          <div class="logo">
-            <i class="fa-solid fa-bars"></i>
-            <div class="title">
+        <div className="end">
+          <div className="logo">
+            <i className="fa-solid fa-bars"></i>
+            <div className="title">
               <a href="#">
                 <Image
                   src={logo}
@@ -25,7 +25,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div class="menu">
+        <div className="menu">
         <a href="https://www.instagram.com/leading_gallopers_riding_club_/">
             <ion-icon name="logo-instagram"></ion-icon>
           </a>
@@ -37,12 +37,12 @@ const Navbar = () => {
           </a>
         </div>
 
-        <div class="end">
+        {/* <div className="end">
           <button type="button" onClick={()=>setShowCart(!showCart)}>
           <ion-icon name="cart-outline"></ion-icon>
           </button>
           {cartItems.length}
-        </div>
+        </div> */}
       </nav>
     </div>
   );

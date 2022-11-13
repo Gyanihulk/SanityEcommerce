@@ -1,11 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
-}
+
 i {
   color: white;
   font-size: 22px;
@@ -26,6 +21,7 @@ a {
      justify-content: space-between;
      background: #100f10;
      padding: 1.8rem 1.9rem;
+     font-family: 'Acme', sans-serif;
     }
     .end {
       flex: 0 0 180px;
@@ -44,6 +40,7 @@ a {
       flex: 0 0 auto;
       margin: 0 .5em;
     font-size: 30px;
+    font-family: 'Acme', sans-serif;
       .logo{
         border-radius: 50%;
       }

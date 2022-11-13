@@ -7,7 +7,7 @@ import Home2 from "../components/home2";
 import Home3 from "../components/AboutTheCoach";
 import Navbar from "../components/Navbar";
 import Product from "../components/Product";
-import { client } from "../lib/client";
+import { client, urlFor } from "../lib/client";
 import AboutTheCoach from "../components/AboutTheCoach";
 
 const index = ({ products, bannerData }) => {
@@ -24,7 +24,21 @@ const index = ({ products, bannerData }) => {
 
           <article>
           {products?.map((product) => (
-          <Product key={product._id} product={product} />
+          <div
+          style={{
+            animationDelay: "1s",
+          }}
+        >
+          <img
+        src={urlFor(product.image && product.image[0])}
+        width={80}
+        height={80}
+        className="product-image"
+        alt="product1"
+      />
+          <p>{product.name}</p>
+          <p>₹ {product.price} /Month</p>
+        </div>
         ))}
             
 
